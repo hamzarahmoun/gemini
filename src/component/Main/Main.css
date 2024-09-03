@@ -1,54 +1,61 @@
-.main{
+.main {
     flex: 1;
     min-height: 100vh;
     padding: 15px;
     position: relative;
 }
-.main .nav{
+
+.main .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 22px; 
+    font-size: 22px;
     padding: 20px;
     color: #585858
 }
-.main .nav img{
+
+.main .nav img {
     width: 40px;
     border-radius: 50%;
 }
 
-.main-container{
+.main-container {
     max-width: 900px;
     margin: auto;
 }
- .main .greet{
+
+.main .greet {
     margin: 50px 0;
     font-size: 56px;
     color: #c4c7c5;
     font-weight: 500;
     padding: 20px;
- }
- .main-container .greet span{
+}
+
+.main-container .greet span {
     background: -webkit-linear-gradient(16deg, #4b90ff, #ff5546);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
- }
- .main-container .cards{
+}
+
+.main-container .cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 20px;
     padding: 20px;
- }
- .main-container .card{
+}
+
+.main-container .card {
     height: 200px;
     padding: 15px;
     background-color: #f0f4f9;
     border-radius: 10px;
     position: relative;
     cursor: pointer;
- }
- .main-container .card img{
-   
+}
+
+.main-container .card img {
+
     width: 35px;
     padding: 5px;
     position: absolute;
@@ -56,13 +63,65 @@
     border-radius: 20px;
     bottom: 10px;
     right: 10px;
- }
- .main-container .card p{
+}
+
+.main-container .card p {
     font-size: 17px;
     color: #585858;
     margin: 0;
     padding: 0;
- }
- .main-container .card:hover{
+}
+
+.main-container .card:hover {
     background-color: #e0e4ea;
- }
+}
+
+.main-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    max-width: 900px;
+    padding: 0 20px;
+    margin: auto;
+}
+
+.main-bottom .search-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background-color: #f0f4f9;
+    border-radius: 50px;
+    padding: 10px 20px;
+}
+
+.main-bottom .search-box img {
+    width: 24px;
+    cursor: pointer;
+}
+
+.main-bottom .search-box input {
+   flex:1;
+   border: none;
+   outline: none;
+   background: transparent;
+   padding: 10px;
+   font-size: 16px;
+   color: #585858;
+}
+
+.main-bottom .search-box div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.main-bottom .bottom-info {
+    margin: 15px auto;
+    font-size: 14px;
+    color: #585858;
+    text-align: center;
+    font-size: 300;
+}
+
+
