@@ -13,6 +13,9 @@ const Main = () => {
            <img src={assets.user_icon} alt="" />
         </div>
         <div className="main-container">
+
+            {!showResult?<>
+
             <div className="greet">
                 <p><span>Hello, Dev.</span></p>
                 <p>How Can I Help You Today?</p>
@@ -34,8 +37,12 @@ const Main = () => {
                 <p>improve the copy on my website</p>
                 <img src={assets.code_icon} alt="" />
             </div>
+
             </div>
 
+            </>
+            
+            :<div className='result'></div>}
             <div className="main-bottom">
                 <div className="search-box">
                     <input onChange={(e) => setInput(e.target.value)} value={input} type="text" placeholder='enter a prompt here' />
