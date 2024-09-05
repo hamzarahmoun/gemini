@@ -8,11 +8,15 @@ export const ContextProvider = (props) => {
         const[prevPrompt, setPrevPrompt] = useState([]);
         const[showResult, setShowResult] = useState(false);
         const[isLoading, setIsLoading] = useState(false);
-        const[result, setResult] = useState('');
+        const[resultData, setResultData] = useState("");
     const onSent  = async () => {
-        
-
-        await runChat(input);
+        setResultData("")
+        setIsLoading(true)
+        setShowResult(true)
+        const response = await runChat(input);
+        setResultData(response)
+        setIsLoading(false)
+        setInput("")
     }
     
     
@@ -27,9 +31,9 @@ export const ContextProvider = (props) => {
         setShowResult,
         isLoading,
         setIsLoading,
-        result,
-        setResult,
         onSent,
+        resultData,
+        setResultData,
         
 
 
