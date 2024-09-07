@@ -53,7 +53,7 @@ const Main = () => {
                     <hr/>
                     <hr/>
                     <hr/>
-                   </div>:<div className="markdown-content">
+                   </div>:<div id="result-container" className="markdown-content">
                        <ReactMarkdown>{resultData}</ReactMarkdown>
                    </div>}
                 </div>

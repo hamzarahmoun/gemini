@@ -11,8 +11,18 @@ export const ContextProvider = (props) => {
         const[resultData, setResultData] = useState("");
 
 
-        const delayPara = (index,nextworld)=>{
-         
+        const delayPara = (text, setResultData) => {
+            const words = text.split(' ');
+            let currentIndex = 0;
+
+            const intervalId = setInterval(() => {
+                if (currentIndex < words.length) {
+                    setResultData(prevText => prevText + words[currentIndex] + ' ');
+                    currentIndex++;
+                } else {
+                    clearInterval(intervalId);
+                }
+            }, 30); // Adjust the delay (in milliseconds) between words as needed
         }
 
         const onSent = async () => {
@@ -20,6 +30,7 @@ export const ContextProvider = (props) => {
             setIsLoading(true);
             setShowResult(true);
             setRecentPrompt(input);
+            setPrevPrompt(prev => [...prev, input]);
             const response = await runChat(input);
             
             // Convert the response to Markdown
@@ -30,10 +41,11 @@ export const ContextProvider = (props) => {
                 .replace(/\*\*(.*?)\*\*/g, '**$1**')
                 .replace(/\[(.*?)\]\((.*?)\)/g, '[$1]($2)');
             
-            setResultData(formattedResponse);
             setIsLoading(false);
             setInput("");
-          
+            
+            // Use delayPara to show the text word by word
+            delayPara(formattedResponse, setResultData);
         }
 
 
