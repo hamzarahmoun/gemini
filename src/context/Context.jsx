@@ -10,13 +10,27 @@ export const ContextProvider = (props) => {
         const[isLoading, setIsLoading] = useState(false);
         const[resultData, setResultData] = useState("");
 
+
+        const delayPara = (index,nextworld)=>{
+         
+        }
+
         const onSent = async () => {
             setResultData("");
             setIsLoading(true);
             setShowResult(true);
             setRecentPrompt(input);
             const response = await runChat(input);
-            setResultData(response);
+            
+            // Convert the response to Markdown
+            const formattedResponse = response
+                .replace(/^# /gm, '# ')
+                .replace(/^## /gm, '## ')
+                .replace(/^\* /gm, '* ')
+                .replace(/\*\*(.*?)\*\*/g, '**$1**')
+                .replace(/\[(.*?)\]\((.*?)\)/g, '[$1]($2)');
+            
+            setResultData(formattedResponse);
             setIsLoading(false);
             setInput("");
           

@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { assets } from '../../assets/assets'
 import './Main.css'
-import { useContext } from 'react'
 import { Context } from '../../context/Context'
+import ReactMarkdown from 'react-markdown'
 
 const Main = () => {
     const {input, setInput, recentPrompt, setRecentPrompt, prevPrompt, setPrevPrompt, showResult, setShowResult, isLoading, setIsLoading, resultData, setResultData, onSent} = useContext(Context);
@@ -53,7 +53,9 @@ const Main = () => {
                     <hr/>
                     <hr/>
                     <hr/>
-                   </div>:<p dangerouslySetInnerHTML={{__html: resultData}}></p>}
+                   </div>:<div className="markdown-content">
+                       <ReactMarkdown>{resultData}</ReactMarkdown>
+                   </div>}
                 </div>
 
             </div>

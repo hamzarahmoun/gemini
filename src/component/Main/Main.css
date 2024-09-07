@@ -177,3 +177,61 @@
         background-position: 800px 0px;
     }
 }
+.result-data p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+
+.markdown-content {
+    font-family: Arial, sans-serif;
+    line-height: 1.8; /* Increased from 1.6 */
+    color: #333;
+    font-size: 18px; /* Added to increase overall text size */
+}
+
+.markdown-content h1 {
+    font-size: 2.2em; /* Increased from 2em */
+    border-bottom: 1px solid #eaecef;
+    padding-bottom: 0.3em;
+    margin-top: 1.5em; /* Added for more space above headings */
+    margin-bottom: 1em; /* Added for more space below headings */
+}
+
+.markdown-content h2 {
+    font-size: 1.7em; /* Increased from 1.5em */
+    border-bottom: 1px solid #eaecef;
+    padding-bottom: 0.3em;
+    margin-top: 1.5em; /* Added for more space above headings */
+    margin-bottom: 1em; /* Added for more space below headings */
+}
+
+.markdown-content ul {
+    padding-left: 2em;
+    margin-bottom: 1.5em; /* Added for more space below lists */
+}
+
+.markdown-content li {
+    margin-bottom: 0.5em; /* Added for more space between list items */
+}
+
+.markdown-content p {
+    margin-bottom: 1.2em; /* Added for more space between paragraphs */
+}
+
+.markdown-content a {
+    color: #0366d6;
+    text-decoration: none;
+}
+
+.markdown-content a:hover {
+    text-decoration: underline;
+}
+
+.markdown-content code {
+    background-color: #f6f8fa;
+    border-radius: 3px;
+    font-size: 90%; /* Increased from 85% */
+    padding: 0.2em 0.4em;
+}
