@@ -23,7 +23,7 @@ const Sidebar = () => {
                 return (
                   <div className="recent-entry" key={index}>
                   <img src={assets.message_icon} alt="" />
-                  <p>{item} ...</p>
+                  <p>{item.slice(0, 18)} ...</p>
                 </div>
                 )
               })}
