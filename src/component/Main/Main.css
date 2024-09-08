@@ -79,9 +79,11 @@
 .main-bottom {
     position: absolute;
     bottom: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     max-width: 900px;
-    padding: 0 20px;
+    padding: 0 15px;
     margin: auto;
 }
 
@@ -125,20 +127,19 @@
 }
 
 .result {
-    padding: 0px 5%;
+    padding: 0 5%;
     max-height: 70vh;
-    overflow-y: scroll;
-}
-
-::-webkit-scrollbar {
-    display: none;
+    overflow-y: auto;
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .result-title {
     display: flex;
     align-items: center;
     gap: 20px;
-    margin: 40px 0px;
+    margin: 40px 0;
 }
 
 .result img {
@@ -148,8 +149,63 @@
 
 .result-data {
     display: flex;
-    align-items: start;
+    flex-direction: column;
     gap: 20px;
+}
+
+.result-data p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .result {
+        width: 95%;
+        padding: 0 2.5%;
+    }
+
+    .result-title {
+        margin: 30px 0;
+        gap: 15px;
+    }
+
+    .result-data {
+        gap: 15px;
+    }
+
+    .result-data p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 480px) {
+    .result {
+        width: 100%;
+        padding: 0 10px;
+        max-height: 60vh;
+    }
+
+    .result-title {
+        margin: 20px 0;
+        gap: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .result img {
+        width: 25px;
+    }
+
+    .result-data {
+        gap: 10px;
+    }
+
+    .result-data p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
 }
 
 .loader {
@@ -177,13 +233,6 @@
         background-position: 800px 0px;
     }
 }
-.result-data p {
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 1.8;
-
-}
-
 
 .markdown-content {
     font-family: Arial, sans-serif;
@@ -235,4 +284,97 @@
     border-radius: 3px;
     font-size: 90%; /* Increased from 85% */
     padding: 0.2em 0.4em;
+}
+
+@media (max-width: 600px) {
+  .main-bottom .search-box {
+    padding: 8px 10px; /* Further reduced padding */
+  }
+  .main-bottom input {
+    flex: none;
+    width: 100px; /* Reduced from 120px */
+    font-size: 13px; /* Further reduced font size */
+  }
+  .main-bottom img {
+    width: 16px; /* Further reduced from 18px */
+  }
+  .search-box div {
+    gap: 5px;
+  }
+  .main-bottom .bottom-info {
+    font-size: 11px; /* Further reduced from 12px */
+  }
+}
+
+@media (max-width: 768px) {
+  .main .greet {
+    font-size: 40px;
+    margin: 30px 0;
+  }
+
+  .main-container .cards {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+  }
+
+  .main-container .card {
+    height: 180px;
+  }
+
+  .result {
+    padding: 0px 3%;
+  }
+}
+
+@media (max-width: 480px) {
+  .main .nav {
+    font-size: 18px;
+    padding: 15px;
+  }
+
+  .main .nav img {
+    width: 30px;
+  }
+
+  .main .greet {
+    font-size: 32px;
+    margin: 20px 0;
+  }
+
+  .main-container {
+    padding: 0 10px; /* Added padding to container */
+  }
+
+  .main-container .cards {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .main-container .card {
+    width: 90%; /* Reduced card width */
+    margin: 0 auto; /* Center the card */
+    height: auto;
+    min-height: 90px; /* Reduced minimum height */
+    padding: 12px;
+  }
+
+  .main-container .card p {
+    font-size: 15px; /* Further reduced font size */
+  }
+
+  .main-container .card img {
+    width: 22px; /* Further reduced image size */
+  }
+
+  .markdown-content {
+    font-size: 16px;
+  }
+
+  .markdown-content h1 {
+    font-size: 1.8em;
+  }
+
+  .markdown-content h2 {
+    font-size: 1.5em;
+  }
 }
