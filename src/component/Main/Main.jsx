@@ -53,7 +53,7 @@ const Main = () => {
                     <hr/>
                     <hr/>
                     <hr/>
-                   </div>:<div id="result-container" className="markdown-content">
+                   </div>:<div className="markdown-content">
                        <ReactMarkdown>{resultData}</ReactMarkdown>
                    </div>}
                 </div>
@@ -67,7 +67,7 @@ const Main = () => {
                     <div>
                         <img src={assets.gallery_icon} alt="" />
                         <img src={assets.mic_icon} alt="" />
-                        <img onClick={()=>onSent()} src={assets.send_icon} alt="" />
+                       {input?<img onClick={()=>onSent()} src={assets.send_icon} alt="" />:null}
 
                     </div>
                 </div>
