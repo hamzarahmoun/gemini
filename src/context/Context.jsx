@@ -28,6 +28,11 @@ export const ContextProvider = (props) => {
                 }
             }, 30); // Adjust the delay (in milliseconds) between words as needed
         }
+        const newChat = () => {
+            setIsLoading(false);
+            setShowResult(false);
+            
+        }
 
         const onSent = async (prompt) => {
             setResultData("");
@@ -80,6 +85,7 @@ export const ContextProvider = (props) => {
             onSent,
             resultData,
             setResultData,
+            newChat,
         }
         return (
             <Context.Provider value={contextValue}>
