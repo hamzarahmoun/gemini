@@ -15,6 +15,10 @@ export const ContextProvider = (props) => {
             const words = text.split(' ');
             let currentIndex = 0;
 
+            // Display the first word immediately
+            setResultData(words[0] + ' ');
+            currentIndex = 0;
+
             const intervalId = setInterval(() => {
                 if (currentIndex < words.length) {
                     setResultData(prevText => prevText + words[currentIndex] + ' ');
@@ -25,24 +29,37 @@ export const ContextProvider = (props) => {
             }, 30); // Adjust the delay (in milliseconds) between words as needed
         }
 
-        const onSent = async () => {
+        const onSent = async (prompt) => {
             setResultData("");
             setIsLoading(true);
             setShowResult(true);
-            setRecentPrompt(input);
-            setPrevPrompt(prev => [...prev, input]);
-            const response = await runChat(input);
+            let response;
+            if(prompt !== undefined){
+                response = await runChat(prompt);
+                setRecentPrompt(prompt);
+            }else{
+                setPrevPrompt(prev => [...prev, input]);
+                setRecentPrompt(input);
+                response = await runChat(input);
+
+            }
             
+           
+
             // Convert the response to Markdown
             const formattedResponse = response
+            
                 .replace(/^# /gm, '# ')
                 .replace(/^## /gm, '## ')
                 .replace(/^\* /gm, '* ')
                 .replace(/\*\*(.*?)\*\*/g, '**$1**')
                 .replace(/\[(.*?)\]\((.*?)\)/g, '[$1]($2)');
+                
+            
             
             setIsLoading(false);
             setInput("");
+
             
             // Use delayPara to show the text word by word
             delayPara(formattedResponse, setResultData);
